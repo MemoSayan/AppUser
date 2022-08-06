@@ -33,6 +33,7 @@ public class AppUserService implements UserDetailsService {
     public String singUpUser(AppUser appUser) {
         boolean userExists = appUserRepository.findByEmail(appUser.getEmail()).isPresent();
         if (userExists) {
+            // TODO: check of attributes are the same and, if imael not confirmed send confirmation email
             throw new IllegalStateException("Email already taken");
         }
 
@@ -53,7 +54,9 @@ public class AppUserService implements UserDetailsService {
         );
 
         // TODO: SEND EMAIL
-        return "it works";
+        return token;
+    }
+    public int enableAppUser(String email) {
+        return appUserRepository.enableAppUser(email);
     }
 }
-
