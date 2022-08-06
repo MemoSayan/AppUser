@@ -1,5 +1,6 @@
 package com.code.UserResgistration.registration.token;
 
+import com.code.UserResgistration.appuser.AppUser;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -15,13 +16,13 @@ public class ConfirmationToken {
 
     @SequenceGenerator(
             name = "student_sequence",
-            sequenceName = "student_sequence",
+            sequenceName = "confirmation_sequence",
             allocationSize = 1
     )
     @Id
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
-            generator = "student_sequence"
+            generator = "confirmation_sequence"
     )
     private Long id;
     @Column(nullable = false)
@@ -30,15 +31,19 @@ public class ConfirmationToken {
     private LocalDateTime createdAt;
     private LocalDateTime expiresAt;
     private LocalDateTime confirmedAt;
-
+    @ManyToOne
+    @JoinColumn(
+            nullable = false,
+            name = "app_user_id")
+    private AppUser appUser;
     public ConfirmationToken(String token,
                              LocalDateTime createdAt,
                              LocalDateTime expiresAt,
-                             LocalDateTime confirmedAt)
+                             AppUser appUser)
     {
         this.token = token;
         this.createdAt = createdAt;
         this.expiresAt = expiresAt;
-        this.confirmedAt = confirmedAt;
+        this.appUser = appUser;
     }
 }
