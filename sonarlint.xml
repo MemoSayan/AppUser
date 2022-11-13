@@ -7,9 +7,15 @@
             <Rule active="false" key="java:S1068" />
           </value>
         </entry>
+        <entry key="java:S1220">
+          <value>
+            <Rule active="false" key="java:S1220" />
+          </value>
+        </entry>
       </map>
     </option>
     <rules>
+      <Rule active="false" key="java:S1220" />
       <Rule active="false" key="java:S1068" />
     </rules>
   </component>
