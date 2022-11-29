@@ -1,0 +1,6 @@
+<application>
+  <component name="org.intellij.sdk.logic.YoProgressBarUiState">
+    <option name="currentBackgroundPath" value="/Backgrounds/sonicBackground.png" />
+    <option name="currentIconPath" value="/Gifs/соник.gif" />
+  </component>
+</application>
